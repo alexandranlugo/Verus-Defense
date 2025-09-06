@@ -16,7 +16,7 @@
     --popover: 0 0% 2%;
     --popover-foreground: 0 0% 95%;
 
-    /* Intelligence theme colors */
+    /* Intelligence theme colors - minimalist grayscale */
     --primary: 0 0% 95%;
     --primary-foreground: 0 0% 0%;
 
@@ -29,14 +29,14 @@
     --accent: 0 0% 12%;
     --accent-foreground: 0 0% 90%;
 
-    /* Threat indicators */
-    --destructive: 0 70% 45%;
-    --destructive-foreground: 0 0% 95%;
+    /* Status indicators - minimal color */
+    --destructive: 0 0% 70%;
+    --destructive-foreground: 0 0% 0%;
 
-    --warning: 45 85% 60%;
+    --warning: 0 0% 75%;
     --warning-foreground: 0 0% 0%;
 
-    --success: 120 45% 55%;
+    --success: 0 0% 80%;
     --success-foreground: 0 0% 0%;
 
     /* UI elements */
@@ -47,18 +47,18 @@
     /* Sharp, angular design - no rounded corners */
     --radius: 0;
 
-    /* Intelligence-specific colors */
-    --threat-high: 0 75% 50%;
-    --threat-medium: 30 85% 55%;
-    --threat-low: 60 60% 60%;
-    --classified: 200 40% 45%;
-    --secret: 15 70% 50%;
-    --top-secret: 0 80% 40%;
+    /* Intelligence-specific colors - monochromatic */
+    --threat-high: 0 0% 70%;
+    --threat-medium: 0 0% 75%;
+    --threat-low: 0 0% 80%;
+    --classified: 0 0% 65%;
+    --secret: 0 0% 60%;
+    --top-secret: 0 0% 55%;
 
-    /* Terminal/console colors */
-    --terminal-green: 120 60% 50%;
-    --terminal-amber: 45 100% 50%;
-    --scanner-blue: 200 80% 60%;
+    /* Terminal/console colors - subdued */
+    --terminal-green: 0 0% 85%;
+    --terminal-amber: 0 0% 80%;
+    --scanner-blue: 0 0% 75%;
   }
 }
 
@@ -68,6 +68,6 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
   }
 }
