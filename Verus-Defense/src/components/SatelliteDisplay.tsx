@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ZoomIn, ZoomOut, Crosshair, Layers, AlertTriangle } from "lucide-react";
-import mapImg from "@/assets/iran-nuclear-site.jpg";
+import { Button } from "@/components/ui/button";
 
 interface Annotation {
   id: string;
@@ -38,21 +38,15 @@ export const SatelliteDisplay = () => {
             KHORRAMSHAHR PORT - LIVE FEED
           </p>
         </div>
-
+        
         <div className="flex items-center gap-2">
-          <button
-            className="gotham-button px-2 py-1"
-            onClick={() => setZoom(Math.max(0.5, zoom - 0.25))}
-          >
+          <button className="gotham-button px-2 py-1" onClick={() => setZoom(Math.max(0.5, zoom - 0.25))}>
             <ZoomOut className="h-3 w-3" />
           </button>
           <span className="text-label font-mono text-gotham-text-2">
             {Math.round(zoom * 100)}%
           </span>
-          <button
-            className="gotham-button px-2 py-1"
-            onClick={() => setZoom(Math.min(3, zoom + 0.25))}
-          >
+          <button className="gotham-button px-2 py-1" onClick={() => setZoom(Math.min(3, zoom + 0.25))}>
             <ZoomIn className="h-3 w-3" />
           </button>
           <button className="gotham-button px-2 py-1">
@@ -77,26 +71,18 @@ export const SatelliteDisplay = () => {
       </div>
 
       <div className="relative flex-1 overflow-hidden bg-gotham-bg-0">
-        {/* MAP SURFACE — now uses map-canvas + map-grid-overlay */}
-        <div
-          id="map"
-          className="h-full w-full map-grid-overlay" // no need for map-canvas now
-          style={{
-            backgroundImage: `
-              radial-gradient(120% 100% at 50% 0%, rgba(0,0,0,.35) 0%, rgba(0,0,0,.55) 60%, rgba(0,0,0,.7) 100%),
-              url(${mapImg})
-            `,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-            filter: "saturate(.75) brightness(.9) contrast(1.1)",
+        <div 
+          className="h-full w-full bg-gradient-to-br from-gotham-bg-1/20 to-gotham-bg-2/40 map-grid-overlay"
+          style={{ 
             transform: `scale(${zoom})`,
-            transformOrigin: "center center",
-            marginTop: 16,
-            marginLeft: 48,
+            transformOrigin: 'center center',
+            marginTop: '16px',
+            marginLeft: '48px'
           }}
         >
+          {/* Satellite imagery placeholder */}
           <div className="h-full w-full relative">
+            {/* Annotations */}
             {annotations.map((annotation) => (
               <div
                 key={annotation.id}
@@ -104,20 +90,18 @@ export const SatelliteDisplay = () => {
                 style={{
                   left: `${annotation.x}%`,
                   top: `${annotation.y}%`,
-                  transform: "translate(-50%, -50%)",
-                  width: "120px",
-                  height: "80px",
+                  transform: 'translate(-50%, -50%)',
+                  width: '120px',
+                  height: '80px',
                 }}
               >
                 <div className="absolute -top-8 left-1/2 -translate-x-1/2 whitespace-nowrap">
                   <div className="intelligence-tag px-2 py-1 bg-gotham-bg-2 border border-gotham-line-2">
-                    {annotation.type === "threat" && (
-                      <AlertTriangle className="h-3 w-3 inline mr-1" />
-                    )}
+                    {annotation.type === "threat" && <AlertTriangle className="h-3 w-3 inline mr-1" />}
                     <span className="text-label font-mono uppercase">{annotation.label}</span>
                   </div>
                 </div>
-
+                
                 {/* Crosshair center */}
                 <div className="absolute left-1/2 top-1/2 h-4 w-4 -translate-x-1/2 -translate-y-1/2">
                   <div className="h-full w-0.5 bg-current opacity-60"></div>
@@ -130,9 +114,15 @@ export const SatelliteDisplay = () => {
 
         {/* Coordinates overlay */}
         <div className="absolute bottom-3 left-3 space-y-1">
-          <div className="text-mono text-gotham-text-2">LAT: 30.4392°N</div>
-          <div className="text-mono text-gotham-text-2">LON: 48.1619°E</div>
-          <div className="text-mono text-gotham-text-2">ALT: 387M</div>
+          <div className="text-mono text-gotham-text-2">
+            LAT: 30.4392°N
+          </div>
+          <div className="text-mono text-gotham-text-2">
+            LON: 48.1619°E
+          </div>
+          <div className="text-mono text-gotham-text-2">
+            ALT: 387M
+          </div>
         </div>
 
         {/* Classification */}
