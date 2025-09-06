@@ -70,7 +70,7 @@ export const ThreatAssessment = () => {
           </h3>
         </div>
         <p className="text-label font-mono text-gotham-text-2">
-          CLEARSIGNAL AI - BEHAVIORAL ANALYSIS
+          VERUSDEFENSE AI - BEHAVIORAL ANALYSIS
         </p>
       </div>
 
