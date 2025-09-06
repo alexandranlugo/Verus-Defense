@@ -6,24 +6,21 @@
 
 @layer base {
   :root {
-    /* Deeper navy palette */
-    --bg-0: 215 55% 5%;   /* #050c1a  page bg (very dark) */
-    --bg-1: 215 50% 8%;   /* #071427  panel bg */
-    --bg-2: 215 42% 12%;  /* #0c1d33  headers/toolbars */
-
-    /* Lines slightly brighter for contrast on the darker bg */
-    --line-1: 215 32% 30%; /* #3b5076 */
-    --line-2: 215 28% 38%; /* #4b6696 */
-
-    /* Text: tiny lift to keep AA contrast on darker bg */
-    --text-1: 215 24% 90%; /* #e0e6f1 */
-    --text-2: 215 20% 72%; /* #a1b1c9 */
-
-    /* Keep your accents */
-    --accent: 190 100% 77%;
-    --ok: 130 100% 80%;
-    --warn: 45 100% 70%;
-    --alert: 0 100% 70%;
+    /* Palantir Gotham Design Tokens */
+    --bg-0: 210 45% 7%;    /* #0b1321 */
+    --bg-1: 210 45% 11%;   /* #0f1a2b */
+    --bg-2: 210 40% 16%;   /* #142338 */
+    
+    --line-1: 210 35% 24%; /* #2c3b57 */
+    --line-2: 210 30% 32%; /* #3e5274 */
+    
+    --text-1: 210 25% 87%; /* #d7dbe7 */
+    --text-2: 210 20% 70%; /* #9fb0c7 */
+    
+    --accent: 190 100% 77%; /* #92e3ff */
+    --ok: 130 100% 80%;     /* #9bffa6 */
+    --warn: 45 100% 70%;    /* #ffd166 */
+    --alert: 0 100% 70%;    /* #ff6b6b */
 
     /* Semantic mappings for shadcn compatibility */
     --background: var(--bg-0);
@@ -110,35 +107,12 @@
     box-shadow: 0 0 0 2px hsl(var(--accent) / 0.15);
   }
 
- /* Satellite photo + vignette/tuning */
-.map-canvas{
-  position: relative;
-  background-image:
-    radial-gradient(120% 100% at 50% 0%, rgba(0,0,0,.35) 0%, rgba(0,0,0,.55) 60%, rgba(0,0,0,.7) 100%),
-    url("/images/iranian-nuclear-site.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  filter: saturate(.75) brightness(.9) contrast(1.1);
-}
-
-/* Grid overlay as a pseudo-element so it stacks above the image */
-.map-grid-overlay{ position: relative; }
-.map-grid-overlay::before{
-  content:"";
-  position:absolute; inset:0; pointer-events:none;
-  background-image:
-    repeating-linear-gradient(0deg,  rgba(255,255,255,.04) 0px, rgba(255,255,255,.04) 1px, transparent 1px, transparent 32px),
-    repeating-linear-gradient(90deg, rgba(255,255,255,.04) 0px, rgba(255,255,255,.04) 1px, transparent 1px, transparent 32px);
-}
-
-/* Optional subtle bottom vignette/grain for SCIF look */
-.map-canvas::after{
-  content:"";
-  position:absolute; inset:0; pointer-events:none;
-  background: radial-gradient(120% 100% at 50% 100%, rgba(0,0,0,.45), transparent 40%);
-}
-
+  /* Map grid overlay */
+  .map-grid-overlay {
+    background-image: 
+      repeating-linear-gradient(0deg, rgba(255,255,255,0.06) 0px, rgba(255,255,255,0.06) 1px, transparent 1px, transparent 40px),
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.06) 0px, rgba(255,255,255,0.06) 1px, transparent 1px, transparent 40px);
+  }
 
   /* Intelligence tag pills */
   .intelligence-tag {
