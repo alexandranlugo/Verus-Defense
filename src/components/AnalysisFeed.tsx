@@ -53,7 +53,7 @@ export const AnalysisFeed = () => {
         timestamp: new Date().toLocaleTimeString('en-US', { hour12: false }),
         type: Math.random() > 0.7 ? "threat" : "analysis",
         message: "REAL-TIME PATTERN ANALYSIS UPDATED",
-        source: "CLEARsignal-AI",
+        source: "VERUSDefense-AI",
         priority: Math.random() > 0.5 ? "medium" : "low"
       };
       
