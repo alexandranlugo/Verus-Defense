@@ -38,17 +38,17 @@ export const ThreatAssessment = () => {
 
   const getStatusColor = (status: ThreatMetric["status"]) => {
     switch (status) {
-      case "critical": return "text-threat-high";
-      case "elevated": return "text-warning";
-      case "normal": return "text-terminal-green";
+      case "critical": return "text-gotham-alert";
+      case "elevated": return "text-gotham-warn";
+      case "normal": return "text-gotham-ok";
     }
   };
 
   const getProgressColor = (status: ThreatMetric["status"]) => {
     switch (status) {
-      case "critical": return "bg-threat-high";
-      case "elevated": return "bg-warning";
-      case "normal": return "bg-terminal-green";
+      case "critical": return "bg-gotham-alert";
+      case "elevated": return "bg-gotham-warn";
+      case "normal": return "bg-gotham-ok";
     }
   };
 
@@ -62,14 +62,14 @@ export const ThreatAssessment = () => {
 
   return (
     <div className="h-full flex flex-col">
-      <div className="border-b border-foreground/20 p-3">
+      <div className="border-b border-gotham-line-1 p-3">
         <div className="flex items-center gap-2">
-          <Brain className="h-4 w-4 text-scanner-blue" />
-          <h3 className="text-sm font-mono uppercase tracking-wider text-foreground">
+          <Brain className="h-4 w-4 text-gotham-accent" />
+          <h3 className="text-section font-mono uppercase tracking-wider text-gotham-text-1">
             AI THREAT ASSESSMENT
           </h3>
         </div>
-        <p className="text-xs font-mono text-foreground/60">
+        <p className="text-label font-mono text-gotham-text-2">
           CLEARSIGNAL AI - BEHAVIORAL ANALYSIS
         </p>
       </div>
@@ -77,30 +77,31 @@ export const ThreatAssessment = () => {
       <div className="flex-1 p-3 space-y-6">
         {/* Threat Metrics */}
         <div className="space-y-3">
-          <h4 className="text-xs font-mono uppercase text-foreground/80 border-b border-foreground/10 pb-1">
+          <h4 className="text-label font-mono uppercase text-gotham-text-1 border-b border-gotham-line-1 pb-1">
             THREAT METRICS
           </h4>
           
           {metrics.map((metric, index) => (
             <div key={index} className="space-y-2">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-mono text-foreground/70">
+                <span className="text-label font-mono text-gotham-text-2">
                   {metric.label}
                 </span>
                 <div className="flex items-center gap-2">
-                  <span className={`text-xs font-mono ${getStatusColor(metric.status)}`}>
+                  <span className={`text-label font-mono ${getStatusColor(metric.status)}`}>
                     {metric.value}%
                   </span>
-                  <span className="text-xs text-foreground/60">
+                  <span className="text-label text-gotham-text-2">
                     {getTrendIcon(metric.trend)}
                   </span>
                 </div>
               </div>
-              <Progress 
-                value={metric.value} 
-                className="h-1 bg-muted"
-                // Note: Progress component would need custom styling for colors
-              />
+              <div className="h-1 bg-gotham-bg-2 border border-gotham-line-1">
+                <div 
+                  className={`h-full transition-all duration-300 ${getProgressColor(metric.status)}`}
+                  style={{ width: `${metric.value}%` }}
+                />
+              </div>
             </div>
           ))}
         </div>
@@ -108,8 +109,8 @@ export const ThreatAssessment = () => {
         {/* AI Insights */}
         <div className="space-y-3">
           <div className="flex items-center gap-2">
-            <Database className="h-3 w-3 text-scanner-blue" />
-            <h4 className="text-xs font-mono uppercase text-foreground/80 border-b border-foreground/10 pb-1 flex-1">
+            <Database className="h-3 w-3 text-gotham-accent" />
+            <h4 className="text-label font-mono uppercase text-gotham-text-1 border-b border-gotham-line-1 pb-1 flex-1">
               AI BEHAVIORAL INSIGHTS
             </h4>
           </div>
@@ -117,8 +118,8 @@ export const ThreatAssessment = () => {
           <div className="space-y-2">
             {aiInsights.map((insight, index) => (
               <div key={index} className="flex gap-2">
-                <div className="text-xs font-mono text-scanner-blue mt-0.5">•</div>
-                <p className="text-xs font-mono text-foreground/80 leading-relaxed">
+                <div className="text-label font-mono text-gotham-accent mt-0.5">•</div>
+                <p className="text-label font-mono text-gotham-text-1 leading-relaxed">
                   {insight}
                 </p>
               </div>
@@ -127,25 +128,25 @@ export const ThreatAssessment = () => {
         </div>
 
         {/* Overall Assessment */}
-        <div className="border border-warning/30 bg-warning/5 p-3">
+        <div className="border border-gotham-warn/30 bg-gotham-warn/5 p-3">
           <div className="flex items-center gap-2 mb-2">
-            <AlertTriangle className="h-3 w-3 text-warning" />
-            <span className="text-xs font-mono text-warning uppercase">
+            <AlertTriangle className="h-3 w-3 text-gotham-warn" />
+            <span className="text-label font-mono text-gotham-warn uppercase">
               ASSESSMENT SUMMARY
             </span>
           </div>
-          <p className="text-xs font-mono text-foreground/80 leading-relaxed">
+          <p className="text-label font-mono text-gotham-text-1 leading-relaxed">
             ELEVATED THREAT DETECTED: Coordinated suspicious activity with high confidence indicators. 
             Recommend immediate escalation to operations center.
           </p>
         </div>
       </div>
 
-      <div className="border-t border-foreground/20 p-2">
-        <div className="flex items-center justify-between text-xs font-mono text-foreground/60">
+      <div className="border-t border-gotham-line-1 p-2">
+        <div className="flex items-center justify-between text-label font-mono text-gotham-text-2">
           <span>LAST UPDATE: {new Date().toLocaleTimeString('en-US', { hour12: false })}</span>
           <div className="flex items-center gap-1">
-            <div className="h-2 w-2 bg-scanner-blue rounded-full animate-pulse"></div>
+            <div className="h-2 w-2 bg-gotham-accent animate-pulse"></div>
             <span>AI ACTIVE</span>
           </div>
         </div>

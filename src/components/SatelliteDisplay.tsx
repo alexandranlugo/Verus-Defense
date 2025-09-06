@@ -20,69 +20,73 @@ export const SatelliteDisplay = () => {
 
   const getAnnotationColor = (type: Annotation["type"]) => {
     switch (type) {
-      case "target": return "border-threat-high bg-threat-high/20";
-      case "poi": return "border-terminal-green bg-terminal-green/20";
-      case "threat": return "border-warning bg-warning/20";
+      case "target": return "border-gotham-alert text-gotham-alert";
+      case "poi": return "border-gotham-ok text-gotham-ok";
+      case "threat": return "border-gotham-warn text-gotham-warn";
     }
   };
 
   return (
     <div className="flex h-full flex-col">
-      <div className="flex items-center justify-between border-b border-foreground/20 p-3">
+      {/* Toolbar */}
+      <div className="flex items-center justify-between gotham-panel border-b bg-gotham-bg-2 p-3">
         <div>
-          <h3 className="text-sm font-mono uppercase tracking-wider text-foreground">
+          <h3 className="text-section font-mono uppercase tracking-wider text-gotham-text-1">
             SATELLITE IMAGERY
           </h3>
-          <p className="text-xs font-mono text-foreground/60">
+          <p className="text-label font-mono text-gotham-text-2">
             KHORRAMSHAHR PORT - LIVE FEED
           </p>
         </div>
         
         <div className="flex items-center gap-2">
-          <Button variant="outline" size="sm" onClick={() => setZoom(Math.max(0.5, zoom - 0.25))}>
+          <button className="gotham-button px-2 py-1" onClick={() => setZoom(Math.max(0.5, zoom - 0.25))}>
             <ZoomOut className="h-3 w-3" />
-          </Button>
-          <span className="text-xs font-mono text-foreground/60">
+          </button>
+          <span className="text-label font-mono text-gotham-text-2">
             {Math.round(zoom * 100)}%
           </span>
-          <Button variant="outline" size="sm" onClick={() => setZoom(Math.min(3, zoom + 0.25))}>
+          <button className="gotham-button px-2 py-1" onClick={() => setZoom(Math.min(3, zoom + 0.25))}>
             <ZoomIn className="h-3 w-3" />
-          </Button>
-          <Button variant="outline" size="sm">
+          </button>
+          <button className="gotham-button px-2 py-1">
             <Layers className="h-3 w-3" />
-          </Button>
-          <Button variant="outline" size="sm">
+          </button>
+          <button className="gotham-button px-2 py-1">
             <Crosshair className="h-3 w-3" />
-          </Button>
+          </button>
         </div>
       </div>
 
-      <div className="relative flex-1 overflow-hidden bg-background">
+      {/* Coordinate ticks */}
+      <div className="relative">
+        <div className="absolute top-0 left-0 right-0 h-4 border-b border-gotham-line-1 flex justify-between items-center px-4 text-mono text-gotham-text-2 bg-gotham-bg-1">
+          <span>0°</span><span>15°</span><span>30°</span><span>45°</span><span>60°</span>
+        </div>
+        <div className="absolute top-4 left-0 bottom-0 w-12 border-r border-gotham-line-1 flex flex-col justify-between items-center py-4 text-mono text-gotham-text-2 bg-gotham-bg-1">
+          <span className="rotate-90 text-xs">60°</span>
+          <span className="rotate-90 text-xs">30°</span>
+          <span className="rotate-90 text-xs">0°</span>
+        </div>
+      </div>
+
+      <div className="relative flex-1 overflow-hidden bg-gotham-bg-0">
         <div 
-          className="h-full w-full bg-gradient-to-br from-muted/20 to-muted/40"
+          className="h-full w-full bg-gradient-to-br from-gotham-bg-1/20 to-gotham-bg-2/40 map-grid-overlay"
           style={{ 
             transform: `scale(${zoom})`,
-            transformOrigin: 'center center'
+            transformOrigin: 'center center',
+            marginTop: '16px',
+            marginLeft: '48px'
           }}
         >
-          {/* Satellite imagery placeholder with overlay grid */}
+          {/* Satellite imagery placeholder */}
           <div className="h-full w-full relative">
-            <div 
-              className="absolute inset-0 opacity-30"
-              style={{
-                backgroundImage: `
-                  linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-                  linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
-                `,
-                backgroundSize: '50px 50px'
-              }}
-            />
-            
             {/* Annotations */}
             {annotations.map((annotation) => (
               <div
                 key={annotation.id}
-                className={`absolute border-2 ${getAnnotationColor(annotation.type)}`}
+                className={`absolute border-2 hover:shadow-[0_0_0_2px_hsl(var(--accent)/0.3)] transition-all duration-150 ${getAnnotationColor(annotation.type)}`}
                 style={{
                   left: `${annotation.x}%`,
                   top: `${annotation.y}%`,
@@ -91,10 +95,10 @@ export const SatelliteDisplay = () => {
                   height: '80px',
                 }}
               >
-                <div className="absolute -top-6 left-1/2 -translate-x-1/2 whitespace-nowrap">
-                  <div className={`flex items-center gap-1 px-2 py-1 text-xs font-mono ${getAnnotationColor(annotation.type)}`}>
-                    {annotation.type === "threat" && <AlertTriangle className="h-3 w-3" />}
-                    <span className="uppercase">{annotation.label}</span>
+                <div className="absolute -top-8 left-1/2 -translate-x-1/2 whitespace-nowrap">
+                  <div className="intelligence-tag px-2 py-1 bg-gotham-bg-2 border border-gotham-line-2">
+                    {annotation.type === "threat" && <AlertTriangle className="h-3 w-3 inline mr-1" />}
+                    <span className="text-label font-mono uppercase">{annotation.label}</span>
                   </div>
                 </div>
                 
@@ -110,21 +114,35 @@ export const SatelliteDisplay = () => {
 
         {/* Coordinates overlay */}
         <div className="absolute bottom-3 left-3 space-y-1">
-          <div className="text-xs font-mono text-foreground/60">
+          <div className="text-mono text-gotham-text-2">
             LAT: 30.4392°N
           </div>
-          <div className="text-xs font-mono text-foreground/60">
+          <div className="text-mono text-gotham-text-2">
             LON: 48.1619°E
           </div>
-          <div className="text-xs font-mono text-foreground/60">
+          <div className="text-mono text-gotham-text-2">
             ALT: 387M
           </div>
         </div>
 
         {/* Classification */}
         <div className="absolute top-3 right-3">
-          <div className="bg-classification-secret px-2 py-1 text-xs font-mono font-bold text-white">
-            SECRET//NOFORN
+          <div className="classification-badge secret relative px-2 py-1">
+            <span className="text-label font-mono font-medium text-gotham-text-1">
+              SECRET//NOFORN
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* Timeline Bar */}
+      <div className="h-14 gotham-panel border-t bg-gotham-bg-1 flex items-center px-4">
+        <div className="flex-1 h-6 bg-gotham-bg-2 border border-gotham-line-1 relative">
+          <div className="absolute left-1/4 top-0 bottom-0 w-0.5 bg-gotham-accent"></div>
+          <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-gotham-warn"></div>
+          <div className="absolute left-3/4 top-0 bottom-0 w-0.5 bg-gotham-accent"></div>
+          <div className="absolute inset-0 flex items-center justify-center text-mono text-gotham-text-2 text-xs">
+            TIMELINE: 18:00 - 19:00 UTC
           </div>
         </div>
       </div>

@@ -33,12 +33,12 @@ export const FileDropZone = ({ onFileUpload }: FileDropZoneProps) => {
   };
 
   return (
-    <div className="h-64 w-full border border-foreground/20 bg-background">
+    <div className="h-64 w-full">
       <div
-        className={`h-full w-full border-2 border-dashed transition-colors ${
+        className={`h-full w-full border-2 border-dashed transition-all duration-150 ${
           isDragOver
-            ? "border-terminal-green bg-terminal-green/5"
-            : "border-foreground/30"
+            ? "border-gotham-accent bg-gotham-accent/5"
+            : "border-gotham-line-1"
         }`}
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
@@ -46,19 +46,19 @@ export const FileDropZone = ({ onFileUpload }: FileDropZoneProps) => {
       >
         <div className="flex h-full flex-col items-center justify-center gap-4 px-6 text-center">
           <div className="flex items-center gap-2">
-            <AlertTriangle className="h-4 w-4 text-warning" />
-            <span className="text-xs font-mono text-warning uppercase tracking-wider">
+            <AlertTriangle className="h-4 w-4 text-gotham-warn" />
+            <span className="text-label font-mono text-gotham-warn uppercase tracking-wider">
               CLASSIFIED MATERIAL UPLOAD
             </span>
           </div>
           
-          <Upload className="h-12 w-12 text-foreground/60" />
+          <Upload className="h-12 w-12 text-gotham-text-2" />
           
           <div className="space-y-2">
-            <p className="text-sm font-mono text-foreground/80">
+            <p className="text-feed font-mono text-gotham-text-1">
               DROP FILES FOR ANALYSIS
             </p>
-            <p className="text-xs font-mono text-foreground/60">
+            <p className="text-label font-mono text-gotham-text-2">
               SUPPORTED: IMG, PDF, DOC, VIDEO
             </p>
           </div>
@@ -73,7 +73,7 @@ export const FileDropZone = ({ onFileUpload }: FileDropZoneProps) => {
           />
           <label
             htmlFor="file-upload"
-            className="cursor-pointer border border-foreground/30 bg-accent px-4 py-2 text-xs font-mono uppercase tracking-wider text-accent-foreground hover:bg-accent/80"
+            className="gotham-button cursor-pointer px-4 py-2 text-label font-mono uppercase tracking-wider"
           >
             SELECT FILES
           </label>

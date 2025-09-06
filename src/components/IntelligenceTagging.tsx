@@ -32,10 +32,10 @@ export const IntelligenceTagging = () => {
 
   const getTagColor = (type: Tag["type"]) => {
     switch (type) {
-      case "person": return "bg-scanner-blue/20 text-scanner-blue border-scanner-blue/40";
-      case "location": return "bg-terminal-green/20 text-terminal-green border-terminal-green/40";
-      case "object": return "bg-foreground/20 text-foreground border-foreground/40";
-      case "threat": return "bg-threat-high/20 text-threat-high border-threat-high/40";
+      case "person": return "text-gotham-accent border-gotham-accent/40";
+      case "location": return "text-gotham-ok border-gotham-ok/40";
+      case "object": return "text-gotham-text-1 border-gotham-line-2";
+      case "threat": return "text-gotham-alert border-gotham-alert/40";
     }
   };
 
@@ -55,11 +55,11 @@ export const IntelligenceTagging = () => {
 
   return (
     <div className="space-y-4">
-      <div className="border-b border-foreground/20 pb-2">
-        <h3 className="text-sm font-mono uppercase tracking-wider text-foreground">
+      <div className="border-b border-gotham-line-1 pb-2">
+        <h3 className="text-section font-mono uppercase tracking-wider text-gotham-text-1">
           INTELLIGENCE TAGGING
         </h3>
-        <p className="text-xs font-mono text-foreground/60">
+        <p className="text-label font-mono text-gotham-text-2">
           PERSONS / OBJECTS / LOCATIONS OF INTEREST
         </p>
       </div>
@@ -67,11 +67,11 @@ export const IntelligenceTagging = () => {
       <div className="space-y-3">
         {tags.map((tag) => (
           <div key={tag.id} className="flex items-center justify-between">
-            <div className={`flex items-center gap-2 border px-2 py-1 text-xs font-mono ${getTagColor(tag.type)}`}>
+            <div className={`intelligence-tag flex items-center gap-2 px-2 py-1 text-label font-mono ${getTagColor(tag.type)}`}>
               {getTagIcon(tag.type)}
               <span>{tag.name}</span>
             </div>
-            <div className="text-xs font-mono text-foreground/60">
+            <div className="text-label font-mono text-gotham-text-2">
               {tag.confidence}%
             </div>
           </div>
@@ -83,17 +83,15 @@ export const IntelligenceTagging = () => {
           value={newTag}
           onChange={(e) => setNewTag(e.target.value)}
           placeholder="ADD NEW TAG..."
-          className="h-8 bg-input text-xs font-mono uppercase"
+          className="h-8 bg-gotham-bg-1 border-gotham-line-1 text-label font-mono uppercase text-gotham-text-1"
           onKeyPress={(e) => e.key === "Enter" && addTag()}
         />
-        <Button
+        <button
           onClick={addTag}
-          size="sm"
-          variant="outline"
-          className="h-8 w-8 p-0"
+          className="gotham-button h-8 w-8 flex items-center justify-center"
         >
           <Plus className="h-3 w-3" />
-        </Button>
+        </button>
       </div>
     </div>
   );

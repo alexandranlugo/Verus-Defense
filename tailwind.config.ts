@@ -15,7 +15,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
-        mono: ['Inter', 'monospace'],
+        mono: ['Roboto Mono', 'monospace'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -50,6 +50,20 @@ export default {
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
+          semantic: "hsl(var(--accent-semantic))",
+        },
+        gotham: {
+          'bg-0': "hsl(var(--bg-0))",
+          'bg-1': "hsl(var(--bg-1))",
+          'bg-2': "hsl(var(--bg-2))",
+          'line-1': "hsl(var(--line-1))",
+          'line-2': "hsl(var(--line-2))",
+          'text-1': "hsl(var(--text-1))",
+          'text-2': "hsl(var(--text-2))",
+          'accent': "hsl(var(--accent))",
+          'ok': "hsl(var(--ok))",
+          'warn': "hsl(var(--warn))",
+          'alert': "hsl(var(--alert))",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",

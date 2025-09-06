@@ -65,60 +65,60 @@ export const AnalysisFeed = () => {
 
   const getIcon = (type: FeedItem["type"]) => {
     switch (type) {
-      case "threat": return <AlertTriangle className="h-3 w-3 text-threat-high" />;
-      case "analysis": return <TrendingUp className="h-3 w-3 text-scanner-blue" />;
-      case "update": return <CheckCircle className="h-3 w-3 text-terminal-green" />;
-      case "alert": return <AlertTriangle className="h-3 w-3 text-warning" />;
+      case "threat": return <AlertTriangle className="h-3 w-3 text-gotham-alert" />;
+      case "analysis": return <TrendingUp className="h-3 w-3 text-gotham-accent" />;
+      case "update": return <CheckCircle className="h-3 w-3 text-gotham-ok" />;
+      case "alert": return <AlertTriangle className="h-3 w-3 text-gotham-warn" />;
     }
   };
 
   const getPriorityColor = (priority: FeedItem["priority"]) => {
     switch (priority) {
-      case "high": return "border-l-threat-high";
-      case "medium": return "border-l-warning";
-      case "low": return "border-l-terminal-green";
+      case "high": return "feed-item-severity-high";
+      case "medium": return "feed-item-severity-medium";
+      case "low": return "feed-item-severity-low";
     }
   };
 
   return (
     <div className="h-full flex flex-col">
-      <div className="border-b border-foreground/20 p-3">
-        <h3 className="text-sm font-mono uppercase tracking-wider text-foreground">
+      <div className="border-b border-gotham-line-1 p-3">
+        <h3 className="text-section font-mono uppercase tracking-wider text-gotham-text-1">
           REAL-TIME ANALYSIS FEED
         </h3>
-        <p className="text-xs font-mono text-foreground/60">
+        <p className="text-label font-mono text-gotham-text-2">
           LIVE INTELLIGENCE PROCESSING
         </p>
       </div>
 
-      <div className="flex-1 overflow-y-auto p-3 space-y-2">
+      <div className="flex-1 overflow-y-auto p-3 space-y-1">
         {feedItems.map((item) => (
           <div
             key={item.id}
-            className={`border-l-2 ${getPriorityColor(item.priority)} bg-card/50 p-2 space-y-1`}
+            className={`feed-item ${getPriorityColor(item.priority)} p-2 space-y-1`}
           >
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 {getIcon(item.type)}
-                <span className="text-xs font-mono text-foreground/60">
+                <span className="text-mono text-gotham-text-2">
                   {item.timestamp}
                 </span>
               </div>
-              <span className="text-xs font-mono text-foreground/40">
+              <span className="text-mono text-gotham-text-2 text-right">
                 {item.source}
               </span>
             </div>
             
-            <p className="text-xs font-mono text-foreground leading-relaxed">
+            <p className="text-feed font-mono text-gotham-text-1 leading-relaxed">
               {item.message}
             </p>
           </div>
         ))}
       </div>
 
-      <div className="border-t border-foreground/20 p-2">
-        <div className="flex items-center gap-2 text-xs font-mono text-foreground/60">
-          <div className="h-2 w-2 bg-terminal-green rounded-full animate-pulse"></div>
+      <div className="border-t border-gotham-line-1 p-2">
+        <div className="flex items-center gap-2 text-label font-mono text-gotham-text-2">
+          <div className="h-2 w-2 bg-gotham-ok animate-pulse"></div>
           <span>LIVE MONITORING ACTIVE</span>
         </div>
       </div>
