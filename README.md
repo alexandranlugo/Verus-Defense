@@ -79,13 +79,30 @@ https://www.canva.com/design/DAGyPOzn2-w/WR8cUn2ilrmqzsBoRQBWfg/edit?utm_content
 ## Project Structure
 
 ```bash
-src/
- ├─ AnalysisFeed.tsx          # Real-time analysis updates
- ├─ ClassificationPanel.tsx   # Classification controls
- ├─ CryptographicIntegrity.tsx# Hash & metadata verification
- ├─ FileDropZone.tsx          # Secure drag-and-drop uploads
- ├─ IntelligenceDashboard.tsx # Main dashboard with tabs
- ├─ IntelligenceTagging.tsx   # Analyst tagging interface
- ├─ SatelliteDisplay.tsx      # Nuclear site image view
- ├─ DroneVideo.tsx            # Drone video playback
- ├─ ThreatAssessment.tsx      # Risk scoring & alerts
+Verus-Defense/
+│
+├─ src/                          # Frontend (React/Next.js Intelligence Dashboard)
+│   ├─ AnalysisFeed.tsx          # Real-time AI analysis updates
+│   ├─ ClassificationPanel.tsx   # Manage intelligence classification levels
+│   ├─ CryptographicIntegrity.tsx# Cryptographic hashing & verification display
+│   ├─ DroneVideo.tsx            # Drone reconnaissance video player
+│   ├─ FileDropZone.tsx          # Secure drag-and-drop file uploader
+│   ├─ IntelligenceDashboard.tsx # Main dashboard UI with tab switching
+│   ├─ IntelligenceTagging.tsx   # Analyst tagging & metadata labeling
+│   ├─ SatelliteDisplay.tsx      # Nuclear site satellite imagery view
+│   └─ ThreatAssessment.tsx      # Risk scoring & anomaly alerts
+│
+├─ algorand-backend/             # Backend (Algorand Smart Contract Layer)
+│   ├─ contracts/                # Smart contracts for logging hashes & scores
+│   ├─ scripts/                  # Deployment and interaction scripts
+│   ├─ utils/                    # Helper functions (hashing, transactions)
+│   ├─ package.json              # Backend dependencies
+│   └─ README.md                 # Backend-specific documentation
+│
+├─ public/                       # Static assets (images, demo video, etc.)
+│   ├─ iran-nuclear-site.jpg
+│   └─ drone.mp4
+│
+├─ README.md                     # Full project overview (this file)
+└─ package.json                  # Frontend dependencies
+
