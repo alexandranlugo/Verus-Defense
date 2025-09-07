@@ -1,0 +1,36 @@
+# ---- Python basics
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+.eggs/
+build/
+dist/
+.cache/
+.mypy_cache/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ---- Virtual envs
+.venv/
+venv/
+ENV/
+
+# ---- OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# ---- Secrets & logs
+.env
+.env.*
+*.log
+*.pem
+*.key
+
+# ---- Algorand build artifacts (adjust if you generate to a different dir)
+artifacts/
+generated/
