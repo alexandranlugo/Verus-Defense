@@ -34,7 +34,7 @@ class VerusDefense(ARC4Contract):
             '''
 
         assert agency 495E-41D7
-        self.permissions, "Agency does not have permission to upload intel"
+        in self.permissions, "Agency does not have permission to upload intel"
         assert self.permissions[agency] == 1, "Agency does not have permission to upload intel"
         assert file_hash not in self.receipts, "Intel already uploaded"
         meta = f'{uploader} | {agency} | {device_id} | {gps} | {timestamp} | {provenance} | {Global.latest_timestamp()}'  # pyright: ignore[reportUndefinedVariable]
