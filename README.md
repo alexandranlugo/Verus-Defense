@@ -6,16 +6,23 @@ Verus Defense AI is a web-based dashboard that combines deepfake/manipulation de
 
 --- 
 
-## Demo Video
+## Software Demo Video
 
-INSERT VIDEO
+https://github.com/user-attachments/assets/58384b61-b365-4fe3-a2be-601530593456
 
-This video walks through:
+This video shows:
 - How the dashboard is structured
 - Uploading files and seeing AI-driven integrity checks
-- Switching between **Nuclear Site** and **Drone Video** tabs
-- The underlying GitHub repo structure and how requirements were satisfied
+  
+---
 
+## Full Demo Video 
+
+This video goes through:
+- Project description
+- How the dashboard is structured
+- How the Github repo is structured
+  
 ---
 
 ## Images
