@@ -46,7 +46,27 @@ This video walks through:
 
 ---
 
-## 📂 Project Structure
+## System Interaction Flow
+
+1. **Analyst Uploads File**  
+   → `FileDropZone` triggers AI pipeline.  
+2. **AI Analysis**  
+   → Deepfake detection, metadata checks, anomaly detection.  
+3. **Cryptographic Integrity**  
+   → Hashes and logs recorded.  
+4. **Results Displayed**  
+   → `AnalysisFeed` + `ThreatAssessment` updated.  
+5. **Tab Views**  
+   → Analyst switches between *Nuclear Site* and *Drone Video*.  
+6. **Final Classification**  
+   → Analyst applies classification tags.
+
+---
+
+Link to presentation slides: https://www.canva.com/design/DAGyPOzn2-w/WR8cUn2ilrmqzsBoRQBWfg/edit?utm_content=DAGyPOzn2-w&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton 
+---
+
+## Project Structure
 
 ```bash
 src/
