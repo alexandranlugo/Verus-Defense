@@ -25,29 +25,29 @@ export const IntelligenceDashboard = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
-      <div className="gotham-panel border-b">
-        <div className="flex items-center justify-between p-4">
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2">
-              <Terminal className="h-6 w-6 text-gotham-accent" />
-              <h1 className="text-section font-mono font-medium uppercase tracking-wider">
+      <div className="gotham-panel border-b overflow-x-hidden">
+        <div className="flex items-center justify-between p-4 min-w-0">
+          <div className="flex items-center gap-4 min-w-0">
+            <div className="flex items-center gap-2 min-w-0">
+              <Terminal className="h-6 w-6 text-gotham-accent flex-shrink-0" />
+              <h1 className="text-section font-mono font-medium uppercase tracking-wider truncate">
                 VERUSDEFENSE AI
               </h1>
             </div>
-            <div className="text-label font-mono text-gotham-text-2 uppercase">
+            <div className="text-label font-mono text-gotham-text-2 uppercase truncate min-w-0">
               INTELLIGENCE VERIFICATION SYSTEM
             </div>
           </div>
           
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2">
-              <Eye className="h-4 w-4 text-gotham-ok" />
-              <span className="text-label font-mono text-gotham-ok">
+          <div className="flex items-center gap-4 min-w-0 flex-shrink-0">
+            <div className="flex items-center gap-2 min-w-0">
+              <Eye className="h-4 w-4 text-gotham-ok flex-shrink-0" />
+              <span className="text-label font-mono text-gotham-ok truncate">
                 SCIF AUTHORIZED
               </span>
             </div>
-            <div className="classification-badge secret relative px-3 py-1">
-              <span className="text-label font-mono font-medium text-gotham-text-1">
+            <div className="classification-badge secret relative px-3 py-1 flex-shrink-0">
+              <span className="text-label font-mono font-medium text-gotham-text-1 break-words">
                 SECRET//NOFORN
               </span>
             </div>
@@ -104,26 +104,26 @@ export const IntelligenceDashboard = () => {
       </div>
 
       {/* Bottom Status Bar */}
-      <div className="gotham-panel border-t px-4 py-2">
-        <div className="flex items-center justify-between text-label font-mono">
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2">
-              <div className="h-2 w-2 bg-gotham-ok animate-pulse"></div>
-              <span className="text-gotham-ok">SYSTEM OPERATIONAL</span>
+      <div className="gotham-panel border-t px-4 py-2 overflow-x-hidden">
+        <div className="flex items-center justify-between text-[clamp(10px,0.9vw,12px)] font-mono min-w-0">
+          <div className="flex items-center gap-4 min-w-0">
+            <div className="flex items-center gap-2 min-w-0">
+              <div className="h-2 w-2 bg-gotham-ok animate-pulse flex-shrink-0"></div>
+              <span className="text-gotham-ok truncate">SYSTEM OPERATIONAL</span>
             </div>
-            <div className="text-gotham-text-2">
+            <div className="text-gotham-text-2 truncate min-w-0">
               UPTIME: 127:42:15
             </div>
-            <div className="text-gotham-text-2">
+            <div className="text-gotham-text-2 truncate min-w-0">
               FILES PROCESSED: {uploadedFiles.length}
             </div>
           </div>
           
-          <div className="flex items-center gap-4">
-            <div className="text-gotham-text-2">
+          <div className="flex items-center gap-4 min-w-0 flex-shrink-0">
+            <div className="text-gotham-text-2 break-words min-w-0">
               SESSION: ANALYST_001@SCIF_ALPHA
             </div>
-            <div className="text-gotham-warn">
+            <div className="text-gotham-warn truncate">
               AUTO-LOGOUT: 14:35
             </div>
           </div>

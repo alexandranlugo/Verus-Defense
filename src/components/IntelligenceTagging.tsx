@@ -64,14 +64,14 @@ export const IntelligenceTagging = () => {
         </p>
       </div>
 
-      <div className="space-y-3">
+      <div className="space-y-3 overflow-x-hidden">
         {tags.map((tag) => (
-          <div key={tag.id} className="flex items-center justify-between">
-            <div className={`intelligence-tag flex items-center gap-2 px-2 py-1 text-label font-mono ${getTagColor(tag.type)}`}>
+          <div key={tag.id} className="flex items-center justify-between min-w-0">
+            <div className={`intelligence-tag flex items-center gap-2 px-2 py-1 text-label font-mono ${getTagColor(tag.type)} min-w-0`}>
               {getTagIcon(tag.type)}
-              <span>{tag.name}</span>
+              <span className="truncate break-words">{tag.name}</span>
             </div>
-            <div className="text-label font-mono text-gotham-text-2">
+            <div className="text-label font-mono text-gotham-text-2 flex-shrink-0">
               {tag.confidence}%
             </div>
           </div>

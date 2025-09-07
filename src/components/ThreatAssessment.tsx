@@ -74,20 +74,20 @@ export const ThreatAssessment = () => {
         </p>
       </div>
 
-      <div className="flex-1 p-3 space-y-6">
+      <div className="flex-1 p-3 space-y-6 overflow-x-hidden">
         {/* Threat Metrics */}
         <div className="space-y-3">
-          <h4 className="text-label font-mono uppercase text-gotham-text-1 border-b border-gotham-line-1 pb-1">
+          <h4 className="text-label font-mono uppercase text-gotham-text-1 border-b border-gotham-line-1 pb-1 truncate">
             THREAT METRICS
           </h4>
           
           {metrics.map((metric, index) => (
-            <div key={index} className="space-y-2">
-              <div className="flex items-center justify-between">
-                <span className="text-label font-mono text-gotham-text-2">
+            <div key={index} className="space-y-2 min-w-0">
+              <div className="flex items-center justify-between min-w-0">
+                <span className="text-label font-mono text-gotham-text-2 truncate flex-1">
                   {metric.label}
                 </span>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 flex-shrink-0">
                   <span className={`text-label font-mono ${getStatusColor(metric.status)}`}>
                     {metric.value}%
                   </span>
@@ -108,18 +108,18 @@ export const ThreatAssessment = () => {
 
         {/* AI Insights */}
         <div className="space-y-3">
-          <div className="flex items-center gap-2">
-            <Database className="h-3 w-3 text-gotham-accent" />
-            <h4 className="text-label font-mono uppercase text-gotham-text-1 border-b border-gotham-line-1 pb-1 flex-1">
+          <div className="flex items-center gap-2 min-w-0">
+            <Database className="h-3 w-3 text-gotham-accent flex-shrink-0" />
+            <h4 className="text-label font-mono uppercase text-gotham-text-1 border-b border-gotham-line-1 pb-1 flex-1 truncate">
               AI BEHAVIORAL INSIGHTS
             </h4>
           </div>
           
           <div className="space-y-2">
             {aiInsights.map((insight, index) => (
-              <div key={index} className="flex gap-2">
-                <div className="text-label font-mono text-gotham-accent mt-0.5">•</div>
-                <p className="text-label font-mono text-gotham-text-1 leading-relaxed">
+              <div key={index} className="flex gap-2 min-w-0">
+                <div className="text-label font-mono text-gotham-accent mt-0.5 flex-shrink-0">•</div>
+                <p className="text-label font-mono text-gotham-text-1 leading-relaxed line-clamp-2 min-w-0">
                   {insight}
                 </p>
               </div>
@@ -128,26 +128,26 @@ export const ThreatAssessment = () => {
         </div>
 
         {/* Overall Assessment */}
-        <div className="border border-gotham-warn/30 bg-gotham-warn/5 p-3">
-          <div className="flex items-center gap-2 mb-2">
-            <AlertTriangle className="h-3 w-3 text-gotham-warn" />
-            <span className="text-label font-mono text-gotham-warn uppercase">
+        <div className="border border-gotham-warn/30 bg-gotham-warn/5 p-3 min-w-0">
+          <div className="flex items-center gap-2 mb-2 min-w-0">
+            <AlertTriangle className="h-3 w-3 text-gotham-warn flex-shrink-0" />
+            <span className="text-label font-mono text-gotham-warn uppercase truncate">
               ASSESSMENT SUMMARY
             </span>
           </div>
-          <p className="text-label font-mono text-gotham-text-1 leading-relaxed">
+          <p className="text-label font-mono text-gotham-text-1 leading-relaxed line-clamp-2">
             ELEVATED THREAT DETECTED: Coordinated suspicious activity with high confidence indicators. 
             Recommend immediate escalation to operations center.
           </p>
         </div>
       </div>
 
-      <div className="border-t border-gotham-line-1 p-2">
-        <div className="flex items-center justify-between text-label font-mono text-gotham-text-2">
-          <span>LAST UPDATE: {new Date().toLocaleTimeString('en-US', { hour12: false })}</span>
-          <div className="flex items-center gap-1">
+      <div className="border-t border-gotham-line-1 p-2 overflow-x-hidden">
+        <div className="flex items-center justify-between text-[clamp(10px,0.9vw,12px)] font-mono text-gotham-text-2 min-w-0">
+          <span className="truncate min-w-0">LAST UPDATE: {new Date().toLocaleTimeString('en-US', { hour12: false })}</span>
+          <div className="flex items-center gap-1 flex-shrink-0">
             <div className="h-2 w-2 bg-gotham-accent animate-pulse"></div>
-            <span>AI ACTIVE</span>
+            <span className="truncate">AI ACTIVE</span>
           </div>
         </div>
       </div>

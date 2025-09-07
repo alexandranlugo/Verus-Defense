@@ -63,20 +63,20 @@ export const CryptographicIntegrity = () => {
   const statusInfo = getStatusBadge();
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 overflow-x-hidden">
       <div className="border-b border-gotham-line-1 pb-3">
-        <div className="flex items-center gap-2 mb-1">
-          <Shield className="h-4 w-4 text-gotham-text-2" />
-          <h3 className="text-section font-mono uppercase tracking-wider text-gotham-text-1">
+        <div className="flex items-center gap-2 mb-1 min-w-0">
+          <Shield className="h-4 w-4 text-gotham-text-2 flex-shrink-0" />
+          <h3 className="text-section font-mono uppercase tracking-wider text-gotham-text-1 truncate">
             CRYPTOGRAPHIC INTEGRITY
           </h3>
         </div>
-        <div className="text-label font-mono text-gotham-text-2 uppercase">
+        <div className="text-label font-mono text-gotham-text-2 uppercase truncate">
           SHA-256 • ALGORAND ANCHOR
         </div>
       </div>
 
-      <div className="text-xs font-mono text-gotham-text-2 leading-relaxed">
+      <div className="text-xs font-mono text-gotham-text-2 leading-relaxed line-clamp-2">
         At ingest, each file is SHA-256 hashed and anchored to Algorand; on access, it's re-hashed and checked against the ledger to confirm authenticity.
       </div>
 
@@ -101,14 +101,14 @@ export const CryptographicIntegrity = () => {
           )}
         </Button>
 
-        <div className="flex items-center justify-between">
-          <button className="gotham-ghost-link text-label font-mono uppercase tracking-wider">
-            <ExternalLink className="h-3 w-3" />
+        <div className="flex items-center justify-between min-w-0">
+          <button className="gotham-ghost-link text-label font-mono uppercase tracking-wider truncate">
+            <ExternalLink className="h-3 w-3 flex-shrink-0" />
             VIEW LEDGER
           </button>
           <button 
             onClick={handleCopyHash}
-            className="gotham-ghost-icon p-1"
+            className="gotham-ghost-icon p-1 flex-shrink-0"
             title="Copy Hash"
           >
             <Copy className="h-3 w-3" />
@@ -117,37 +117,45 @@ export const CryptographicIntegrity = () => {
       </div>
 
       {/* Status Badge */}
-      <div className="space-y-2">
-        <div className={`px-3 py-1 border text-xs font-mono uppercase tracking-wider ${statusInfo.class}`}>
+      <div className="space-y-2 min-w-0">
+        <div className={`px-3 py-1 border text-xs font-mono uppercase tracking-wider ${statusInfo.class} truncate`}>
           {statusInfo.text}
         </div>
-        <div className="text-xs font-mono text-gotham-text-2">
+        <div className="text-xs font-mono text-gotham-text-2 line-clamp-2">
           {statusInfo.line}
         </div>
       </div>
 
       {/* Metadata */}
-      <div className="border-t border-gotham-line-1 pt-3 space-y-2">
-        <div className="grid grid-cols-2 gap-2 text-xs font-mono">
-          <div className="text-gotham-text-2">Hash:</div>
-          <div className="text-gotham-text-1">24C7…B9F1</div>
+      <div className="border-t border-gotham-line-1 pt-3 space-y-2 overflow-x-hidden">
+        <div className="space-y-2 text-xs font-mono">
+          <div className="flex justify-between min-w-0">
+            <div className="text-gotham-text-2 flex-shrink-0">Hash:</div>
+            <div className="text-gotham-text-1 truncate break-all min-w-0 text-right">24C7…B9F1</div>
+          </div>
           
-          <div className="text-gotham-text-2">Anchored:</div>
-          <div className="text-gotham-text-1">2025-09-06 17:32Z</div>
+          <div className="flex justify-between min-w-0">
+            <div className="text-gotham-text-2 flex-shrink-0">Anchored:</div>
+            <div className="text-gotham-text-1 truncate min-w-0 text-right">2025-09-06 17:32Z</div>
+          </div>
           
-          <div className="text-gotham-text-2">Source:</div>
-          <div className="text-gotham-text-1">UAV-12A</div>
+          <div className="flex justify-between min-w-0">
+            <div className="text-gotham-text-2 flex-shrink-0">Source:</div>
+            <div className="text-gotham-text-1 truncate break-words min-w-0 text-right">UAV-12A</div>
+          </div>
           
-          <div className="text-gotham-text-2">Uploader:</div>
-          <div className="text-gotham-text-1">CLR-091</div>
+          <div className="flex justify-between min-w-0">
+            <div className="text-gotham-text-2 flex-shrink-0">Uploader:</div>
+            <div className="text-gotham-text-1 truncate break-words min-w-0 text-right">CLR-091</div>
+          </div>
         </div>
       </div>
 
       {/* Help Tooltip */}
       <div className="border-t border-gotham-line-1 pt-3">
-        <div className="flex items-start gap-2">
+        <div className="flex items-start gap-2 min-w-0">
           <Info className="h-3 w-3 text-gotham-text-2 mt-0.5 flex-shrink-0" />
-          <div className="text-xs font-mono text-gotham-text-2 leading-relaxed">
+          <div className="text-xs font-mono text-gotham-text-2 leading-relaxed line-clamp-2 min-w-0">
             Digital fingerprint = SHA-256 digest. Any bit change ⇒ different hash.<br/>
             Anchor includes: hash, timestamp (UTC), source ID, uploader.
           </div>

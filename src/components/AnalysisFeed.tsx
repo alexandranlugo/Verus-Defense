@@ -81,12 +81,12 @@ export const AnalysisFeed = () => {
   };
 
   return (
-    <div className="h-full flex flex-col">
+    <div className="h-full flex flex-col overflow-x-hidden">
       <div className="border-b border-gotham-line-1 p-3">
-        <h3 className="text-section font-mono uppercase tracking-wider text-gotham-text-1">
+        <h3 className="text-section font-mono uppercase tracking-wider text-gotham-text-1 truncate">
           REAL-TIME ANALYSIS FEED
         </h3>
-        <p className="text-label font-mono text-gotham-text-2">
+        <p className="text-label font-mono text-gotham-text-2 truncate">
           LIVE INTELLIGENCE PROCESSING
         </p>
       </div>
@@ -95,21 +95,21 @@ export const AnalysisFeed = () => {
         {feedItems.map((item) => (
           <div
             key={item.id}
-            className={`feed-item ${getPriorityColor(item.priority)} p-2 space-y-1`}
+            className={`feed-item ${getPriorityColor(item.priority)} p-2 space-y-1 min-w-0`}
           >
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
+            <div className="flex items-center justify-between min-w-0">
+              <div className="flex items-center gap-2 min-w-0">
                 {getIcon(item.type)}
-                <span className="text-mono text-gotham-text-2">
+                <span className="text-mono text-gotham-text-2 truncate">
                   {item.timestamp}
                 </span>
               </div>
-              <span className="text-mono text-gotham-text-2 text-right">
+              <span className="text-mono text-gotham-text-2 text-right truncate flex-shrink-0 break-words">
                 {item.source}
               </span>
             </div>
             
-            <p className="text-feed font-mono text-gotham-text-1 leading-relaxed">
+            <p className="text-feed font-mono text-gotham-text-1 leading-relaxed line-clamp-2 min-w-0">
               {item.message}
             </p>
           </div>

@@ -31,13 +31,13 @@ export const ClassificationPanel = () => {
         </div>
       </div>
 
-      <div className="space-y-3">
+      <div className="space-y-3 overflow-x-hidden">
         {metadata.map((item, index) => (
-          <div key={index} className="flex justify-between">
-            <div className="text-label font-mono text-gotham-text-2 uppercase">
+          <div key={index} className="flex justify-between min-w-0">
+            <div className="text-label font-mono text-gotham-text-2 uppercase truncate flex-shrink-0">
               {item.label}:
             </div>
-            <div className={`text-label font-mono ${getValueColor(item.level)}`}>
+            <div className={`text-label font-mono ${getValueColor(item.level)} truncate break-words min-w-0 text-right`}>
               {item.value}
             </div>
           </div>
@@ -49,17 +49,17 @@ export const ClassificationPanel = () => {
           ACCESS CONTROL:
         </div>
         <div className="space-y-1">
-          <div className="flex items-center gap-2 text-label font-mono">
-            <User className="h-3 w-3 text-gotham-ok" />
-            <span className="text-gotham-ok">ANALYST_CLEARANCE_L5</span>
+          <div className="flex items-center gap-2 text-label font-mono min-w-0">
+            <User className="h-3 w-3 text-gotham-ok flex-shrink-0" />
+            <span className="text-gotham-ok truncate break-words">ANALYST_CLEARANCE_L5</span>
           </div>
-          <div className="flex items-center gap-2 text-label font-mono">
-            <Database className="h-3 w-3 text-gotham-accent" />
-            <span className="text-gotham-accent">INTEL_DATABASE_WRITE</span>
+          <div className="flex items-center gap-2 text-label font-mono min-w-0">
+            <Database className="h-3 w-3 text-gotham-accent flex-shrink-0" />
+            <span className="text-gotham-accent truncate break-words">INTEL_DATABASE_WRITE</span>
           </div>
-          <div className="flex items-center gap-2 text-label font-mono">
-            <Clock className="h-3 w-3 text-gotham-warn" />
-            <span className="text-gotham-warn">SESSION_EXPIRES_14:35</span>
+          <div className="flex items-center gap-2 text-label font-mono min-w-0">
+            <Clock className="h-3 w-3 text-gotham-warn flex-shrink-0" />
+            <span className="text-gotham-warn truncate break-words">SESSION_EXPIRES_14:35</span>
           </div>
         </div>
       </div>
