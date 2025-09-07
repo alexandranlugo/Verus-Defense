@@ -63,7 +63,10 @@ This video walks through:
 
 ---
 
-Link to presentation slides: https://www.canva.com/design/DAGyPOzn2-w/WR8cUn2ilrmqzsBoRQBWfg/edit?utm_content=DAGyPOzn2-w&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton 
+## Link to presentation slides: 
+
+https://www.canva.com/design/DAGyPOzn2-w/WR8cUn2ilrmqzsBoRQBWfg/edit?utm_content=DAGyPOzn2-w&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton 
+
 ---
 
 ## Project Structure
