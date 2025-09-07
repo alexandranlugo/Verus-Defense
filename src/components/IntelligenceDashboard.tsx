@@ -31,7 +31,7 @@ export const IntelligenceDashboard = () => {
             <div className="flex items-center gap-2">
               <Terminal className="h-6 w-6 text-gotham-accent" />
               <h1 className="text-section font-mono font-medium uppercase tracking-wider">
-                CLEARSIGNAL AI
+                VERUSDEFENSE AI
               </h1>
             </div>
             <div className="text-label font-mono text-gotham-text-2 uppercase">
