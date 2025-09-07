@@ -17,7 +17,6 @@ class VerusDefense(ARC4Contract):
             self.permissions[agency] = value
         
         @arc4.abimethod()
-        
         def log_intel(self, 
         file_hash: Bytes,
         uploader: String,
