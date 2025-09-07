@@ -20,6 +20,8 @@ This video shows:
 
 ## Full Demo Video 
 
+https://github.com/user-attachments/assets/231d8ac7-1023-4971-8c0c-4b215455cb49
+
 This video goes through:
 - Project description
 - How the dashboard is structured
