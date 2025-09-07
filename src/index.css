@@ -110,6 +110,14 @@
     box-shadow: 0 0 0 2px hsl(var(--accent) / 0.15);
   }
 
+  .gotham-ghost-link {
+    @apply flex items-center gap-2 text-foreground hover:text-accent transition-colors;
+  }
+
+  .gotham-ghost-icon {
+    @apply text-foreground hover:text-accent transition-colors;
+  }
+
  /* Satellite photo + vignette/tuning */
 .map-canvas{
   position: relative;

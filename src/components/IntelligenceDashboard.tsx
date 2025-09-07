@@ -5,6 +5,7 @@ import { SatelliteDisplay } from "./SatelliteDisplay";
 import { ClassificationPanel } from "./ClassificationPanel";
 import { AnalysisFeed } from "./AnalysisFeed";
 import { ThreatAssessment } from "./ThreatAssessment";
+import { CryptographicIntegrity } from "./CryptographicIntegrity";
 import { useToast } from "@/hooks/use-toast";
 import { Shield, Terminal, Eye } from "lucide-react";
 
@@ -59,6 +60,11 @@ export const IntelligenceDashboard = () => {
         {/* Left Sidebar - Intelligence Tools */}
         <div className="gotham-panel border-r">
           <div className="h-full flex flex-col">
+            {/* Cryptographic Integrity */}
+            <div className="border-b border-gotham-line-1 p-4">
+              <CryptographicIntegrity />
+            </div>
+            
             {/* File Upload */}
             <div className="border-b border-gotham-line-1 p-4">
               <FileDropZone onFileUpload={handleFileUpload} />
