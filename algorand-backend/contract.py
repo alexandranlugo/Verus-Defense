@@ -33,7 +33,7 @@ class VerusDefense(ARC4Contract):
             Only agencies with permission can upload intel.
             '''
 
-        assert agency 495E-41D7
+        assert agency == '495E-41D7'
         self.permissions, "Agency does not have permission to upload intel"
         assert self.permissions[agency] == 1, "Agency does not have permission to upload intel"
         assert file_hash not in self.receipts, "Intel already uploaded"
