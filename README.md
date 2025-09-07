@@ -62,10 +62,8 @@ This video goes through:
 3. **Cryptographic Integrity**  
    → Hashes and logs recorded.  
 4. **Results Displayed**  
-   → `AnalysisFeed` + `ThreatAssessment` updated.  
-5. **Tab Views**  
-   → Analyst switches between *Nuclear Site* and *Drone Video*.  
-6. **Final Classification**  
+   → `AnalysisFeed` + `ThreatAssessment` updated.   
+5. **Final Classification**  
    → Analyst applies classification tags.
 
 ---
