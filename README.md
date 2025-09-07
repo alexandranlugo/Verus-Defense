@@ -1,6 +1,7 @@
 # Verus Defense 
 
 > **AI-powered intelligence verification system for defense and intelligence applications.**
+> **EasyA x Harvard Algorand Hackathon 2025**
 
 Verus Defense AI is a web-based dashboard that combines deepfake/manipulation detection, metadata analysis, cryptographic verification, and anomaly detection into a single intelligence console. The system uses AI scoring, blockchain-style integrity logs, and modern UI/UX to help defense teams rapidly authenticate sensitive media such as satellite imagery or drone footage.
 
@@ -30,7 +31,6 @@ This video goes through:
 ### Dashboard Overview
 <img width="1511" height="820" alt="PNG image" src="https://github.com/user-attachments/assets/bd1be602-9743-49ac-ba58-3c1a0699fee7" />
 <img width="1498" height="824" alt="PNG image" src="https://github.com/user-attachments/assets/92479782-c0bc-4093-99c7-5823f371c76b" />
-
 
 ---
 
@@ -85,5 +85,4 @@ src/
  ├─ IntelligenceDashboard.tsx # Main dashboard with tabs
  ├─ IntelligenceTagging.tsx   # Analyst tagging interface
  ├─ SatelliteDisplay.tsx      # Nuclear site image view
- ├─ DroneVideo.tsx            # Drone video playback
  ├─ ThreatAssessment.tsx      # Risk scoring & alerts
