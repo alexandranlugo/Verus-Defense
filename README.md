@@ -1,4 +1,4 @@
-# Verus Defense AI
+# Verus Defense 
 
 > **AI-powered intelligence verification system for defense and intelligence applications.**
 
