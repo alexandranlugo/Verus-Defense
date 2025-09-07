@@ -20,7 +20,8 @@ This video shows:
 
 ## Full Demo Video 
 
-https://github.com/user-attachments/assets/231d8ac7-1023-4971-8c0c-4b215455cb49
+Link to Full Demo Video: 
+https://drive.google.com/file/d/1nIALuJogPSO_25NLFgKAlS0DWaqk5KZP/view?usp=sharing
 
 This video goes through:
 - Project description
