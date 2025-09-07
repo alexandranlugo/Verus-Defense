@@ -1,6 +1,7 @@
 # Verus Defense 
 
 > **AI-powered intelligence verification system for defense and intelligence applications.**
+> 
 > **EasyA x Harvard Algorand Hackathon 2025**
 
 Verus Defense AI is a web-based dashboard that combines deepfake/manipulation detection, metadata analysis, cryptographic verification, and anomaly detection into a single intelligence console. The system uses AI scoring, blockchain-style integrity logs, and modern UI/UX to help defense teams rapidly authenticate sensitive media such as satellite imagery or drone footage.
